@@ -49,9 +49,13 @@ class CompaniesController extends Controller
      */
     public function show($id)
     {
-        $company = Company::where('id',$id);
+        #we might not use this
+        // Show function takes an argument of Company object ($company). This object is injected by the framework and it's available. Why are you re-retrieve it from the database with it's id field and re-assign it to $company?﻿
 
-        return view('companies.show',['companies'=>$company]);
+
+        $company = Company::where('id',$id )->first();
+        return view('companies.show',['company'=>$company]);
+        
     }
 
     /**
