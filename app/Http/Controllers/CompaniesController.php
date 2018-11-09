@@ -66,7 +66,9 @@ class CompaniesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $company = Company::where('id',$id )->first();
+        return view('companies.edit',['company'=>$company]);
+        
     }
 
     /**
@@ -76,11 +78,19 @@ class CompaniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request,company $company)
+    {   
+        $this->validate($request, [
+            'name'=>'required|max:90',
+            'description'=>'required|max:255'            
+        ]);
+        $company->name = $request->name;
+        $company->description = $request->description;
+        $company->save();
+        return redirect()
+        ->route('companies.show', $company->id)
+        ->with('success', "Company updated successfully");
     }
-
     /**
      * Remove the specified resource from storage.
      *
