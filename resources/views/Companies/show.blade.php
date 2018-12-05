@@ -41,6 +41,7 @@
 
       <!-- Example row of columns -->
         {{-- //print projects linked to the company --}}
+        <li><a href="/projects/create" class ="pull-right btn btn-primary btn-small">Add new project</a></li>
         @foreach ($company->project as $project)
         <div class="row" style="background: white; margin :10px;">
                 <div class="col-lg-4">
@@ -70,8 +71,60 @@
               <h4>Actions</h4>
               <ol class="list-unstyled">
               <li><a href="/companies/{{$company->id}}/edit">Edit</a></li>
-                <li><a href="/companies/edit/{{$company->id}}">Delete</a></li>
-                <li><a href="#">Add mew member</a></li>
+              <li><a href="/projects/create">Add new project</a></li>
+              <li><a href="/companies">Comapnies lists</a></li>
+
+              <li><a href="/companies/create">Create New Company</a></li>
+
+
+              <br/>
+
+              <li>
+                <a   
+  
+                href="#"
+  
+                    onclick="
+  
+                    var result = confirm('Are you sure you wish to delete this Company?');
+  
+                        if( result ){
+  
+                                event.preventDefault();
+  
+                                document.getElementById('delete-form').submit();
+  
+                        }
+  
+                            "
+  
+                            >
+  
+                    Delete
+  
+                </a>
+  
+  
+  
+                <form id="delete-form" action="{{ route('companies.destroy',[$company->id]) }}" 
+  
+                  method="POST" style="display: none;">
+  
+                          <input type="hidden" name="_method" value="delete">
+  
+                          {{ csrf_field() }}
+  
+                </form>
+  
+  
+  
+   
+  
+                
+
+                
+  
+                </li>
               </ol>
             </div>
           </div><!-- /.blog-sidebar -->
@@ -81,7 +134,7 @@
 
         <!-- Site footer -->
         <footer class="footer">
-                <p>&copy; Company 2017</p>
+                <p>&copy; KhalodLimited 2019</p>
               </footer>
         
             </div> <!-- /container -->

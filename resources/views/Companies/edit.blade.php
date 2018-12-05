@@ -6,7 +6,8 @@
         <form method = "post" action = "{{route('companies.update',[$company->id]) }}">
             {{ csrf_field()}}
 
-                  <input type ="hidden" name= "_method" value = "put">
+            {{-- //work around to post --}}
+                  <input type ="hidden" name= "_method" value = "put"> 
                     <div class="form-group">
                         <label for="comapny-name">Name</label>
                         <input type="string" class="form-control" name='name' id="comapny-name" aria-describedby="emailHelp" placeholder="Enter company name" required value="{{$company->name}}">

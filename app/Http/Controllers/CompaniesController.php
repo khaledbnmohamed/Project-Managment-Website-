@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CompaniesController extends Controller
 {
@@ -15,9 +16,13 @@ class CompaniesController extends Controller
     public function index()
     {
         //
-        $companies = Company::all();
-
+        if(Auth::check()){ //check if user is logged in or not 
+        $companies = Company::where('user_id',Auth::user()->id->get());
+        //without the get ^^^^ NOTHING WILL BE SHOWN HERE
         return view('companies.Index',['companies'=>$companies]);
+         }
+        return view('auth.login');
+
     }
 
     /**
@@ -27,7 +32,7 @@ class CompaniesController extends Controller
      */
     public function create()
     {
-        //
+        return view('companies.create');
     }
 
     /**
@@ -36,11 +41,31 @@ class CompaniesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
-
+   // This is correct implementation for store from a third party helper
+    public function store(Request $request, Company $company)
+        {
+            //
+            $customMessages = [
+                    'required' => 'The :attribute field can not be blank.',
+                    'unique' => 'The :attribute already exists',
+                ];
+            $request->validate([
+                'name' => 'required|unique:companies|max:30',
+                'description' => 'required|max:255',
+            ], $customMessages);
+    
+            $company->user_id = $request->user()->id;
+            $company->name = $request->name;
+            $company->description = $request->description;
+            if(!$company->save()){
+                return redirect()
+                ->route('companies.create')
+                ->with('error', "Error creating company");
+            }
+            return redirect()
+                ->route('companies.index')
+                ->with('success', "Company created successfully");  
+        }
     /**
      * Display the specified resource.
      *
@@ -99,6 +124,6 @@ class CompaniesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd($comapny);
     }
 }

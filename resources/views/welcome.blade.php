@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Projects Managing System
                 </div>
 
                 <div class="links">
