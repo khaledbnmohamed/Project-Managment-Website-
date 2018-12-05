@@ -6,6 +6,7 @@
     <div class="card" style="width: 18rem;">
         <div class="card-header">
         Companies
+        <a class ="pull-right btn btn-primary" href="/companies/create">Create New </a></li>
         </div>
         <ul class="list-group list-group-flush">
         @foreach ($companies as $company)

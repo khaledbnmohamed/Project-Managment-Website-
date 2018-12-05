@@ -21,15 +21,13 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-        });
-    }
-        Schema::table('users', function (Blueprint $table) {
-            $table->Integer('role_id')->unsigned();
+            $table->Integer('role_id')->unsigned()->default();
             $table->string('first_name')->nullable();
             $table->string('lasT_name')->nullable();
 
 
         });
+        }
     }
 
     /**

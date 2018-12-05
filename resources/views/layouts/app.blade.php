@@ -48,6 +48,16 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @else
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('companies.index') }}">Companies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('projects.index') }}">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tasks.index') }}">Tasks</a>
+                        </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -71,6 +81,11 @@
             </div>
         </nav>
     <div class="container">
+        
+        @include('partials.errors')
+        @include('partials.success')
+
+    </div>
         <main class="py-4">
             @yield('content')
         </main>
