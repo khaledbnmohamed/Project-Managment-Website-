@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use App\Company;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
+
 
 class ProjectsController extends Controller
 {
-    
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +20,7 @@ class ProjectsController extends Controller
     {
         //
         if(Auth::check()){ //check if user is logged in or not 
-        $projects = project::where('user_id',Auth::user()->id->get());
+        $projects = Project::where('user_id',Auth::user()->id)->get();
         //without the get ^^^^ NOTHING WILL BE SHOWN HERE
         return view('projects.Index',['projects'=>$projects]);
          }
@@ -30,9 +33,16 @@ class ProjectsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($company_id = null)
     {
-        return view('projects.create');
+        $companies = null;
+        if(!$company_id){
+
+            $companies = Company::where("user_id",Auth::user()->id)->get();
+        }
+
+        // ID here is optional that's why it may be null + returning list of companies for the drop down menu
+        return view('projects.create',['company_id'=>$company_id,'companies'=>$companies]);
     }
 
     /**
@@ -42,7 +52,7 @@ class ProjectsController extends Controller
      * @return \Illuminate\Http\Response
      */
    // This is correct implementation for store from a third party helper
-    public function store(Request $request, project $project)
+    public function store(Request $request, Project $project)
         {
             //
             $customMessages = [
@@ -56,6 +66,7 @@ class ProjectsController extends Controller
     
             $project->user_id = $request->user()->id;
             $project->name = $request->name;
+            $project->company_id = $request->company_id; //adding company_id field to database
             $project->description = $request->description;
             if(!$project->save()){
                 return redirect()
@@ -64,7 +75,7 @@ class ProjectsController extends Controller
             }
             return redirect()
                 ->route('projects.index')
-                ->with('success', "project created successfully");  
+                ->with('success', "Project created successfully");  
         }
     /**
      * Display the specified resource.
@@ -75,11 +86,12 @@ class ProjectsController extends Controller
     public function show($id)
     {
         #we might not use this
-        // Show function takes an argument of project object ($project). This object is injected by the framework and it's available. Why are you re-retrieve it from the database with it's id field and re-assign it to $project?﻿
+        // Show function takes an argument of Project object ($project). This object is injected by the framework and it's available. Why are you re-retrieve it from the database with it's id field and re-assign it to $project?﻿
 
 
-        $project = project::where('id',$id )->first();
-        return view('projects.show',['project'=>$project]);
+        $project = Project::where('id',$id )->first();
+        $comments =$project->comments;
+        return view('projects.show',['project'=>$project,'comments'=>$comments]);
         
     }
 
@@ -91,7 +103,7 @@ class ProjectsController extends Controller
      */
     public function edit($id)
     {
-        $project = project::where('id',$id )->first();
+        $project = Project::where('id',$id )->first();
         return view('projects.edit',['project'=>$project]);
         
     }
@@ -114,7 +126,7 @@ class ProjectsController extends Controller
         $project->save();
         return redirect()
         ->route('projects.show', $project->id)
-        ->with('success', "project updated successfully");
+        ->with('success', "Project updated successfully");
     }
     /**
      * Remove the specified resource from storage.

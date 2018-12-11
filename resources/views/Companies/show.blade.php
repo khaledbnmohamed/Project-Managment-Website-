@@ -55,7 +55,8 @@
                 
 
      </div>
-  
+    </div>
+
 
     <div class="col-sm-3 col-md-3 col-lg-3 pull-right">
             <div class="sidebar-module sidebar-module-inset">
@@ -71,7 +72,10 @@
               <h4>Actions</h4>
               <ol class="list-unstyled">
               <li><a href="/companies/{{$company->id}}/edit">Edit</a></li>
-              <li><a href="/projects/create">Add new project</a></li>
+              
+              {{-- passing company id   to create project with --}}
+              <li><a href="/projects/create/{{ $company ->id}}">Add new project</a></li> 
+              
               <li><a href="/companies">Comapnies lists</a></li>
 
               <li><a href="/companies/create">Create New Company</a></li>
@@ -116,14 +120,7 @@
   
                 </form>
   
-  
-  
-   
-  
-                
 
-                
-  
                 </li>
               </ol>
             </div>
@@ -131,27 +128,9 @@
   
 
 
+        </div>
 
-        <!-- Site footer -->
-        <footer class="footer">
-                <p>&copy; KhalodLimited 2019</p>
-              </footer>
-        
-            </div> <!-- /container -->
     @endsection
-
-
-    
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
-
-  
+    </body>
 </html>
+    

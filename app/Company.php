@@ -15,6 +15,11 @@ class Company extends Model
 
     ];
 
+    
+    public function commments(){
+
+        return $this->morphMany('App\Comment','commentable');
+    }
     public function user()
     {
 
