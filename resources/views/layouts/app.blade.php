@@ -66,8 +66,24 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('tasks.index') }}">Tasks</a>
                         </li>
+ {{-- Admin Panel                        --}}
+ @if (Auth::user()->role_id == 1)
+ <li class="dropdown">
+        <a id="navbarDropdown" class="nav-link dropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            Admin Panel <span class="caret"></span>
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="nav-link" href="{{ route('projects.index') }}"><i class="far fa-building"></i>Projects</a>
+                <a class="nav-link" href="{{ route('projects.index') }}"><i class="far fa-building"></i>Projects</a>
+
+                <a class="nav-link" href="{{ route('projects.index') }}"><i class="far fa-building"></i>Projects</a>
+          
+        </div>
+    </li>   
+ @endif                       
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 

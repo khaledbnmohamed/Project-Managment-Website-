@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="col-md-6 col-lg-6 col-md-offset-2"> 
-    <div class="card" style="width: 18rem;">
+<div class="col-md-20 col-lg-6 col-md-offset-2"> 
+    <div class="card" >
         <div class="card-header">
         Companies
         <a class ="pull-right btn btn-primary" href="/companies/create">Create New </a></li>
