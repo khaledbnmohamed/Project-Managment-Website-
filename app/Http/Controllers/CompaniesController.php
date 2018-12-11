@@ -16,8 +16,10 @@ class CompaniesController extends Controller
     public function index()
     {
         //
+
         if(Auth::check()){ //check if user is logged in or not 
-        $companies = Company::where('user_id',Auth::user()->id->get());
+        // dd(Auth::user()->id);
+        $companies = Company::where('user_id',Auth::user()->id)->get();
         //without the get ^^^^ NOTHING WILL BE SHOWN HERE
         return view('companies.Index',['companies'=>$companies]);
          }
