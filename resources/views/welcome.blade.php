@@ -1,3 +1,4 @@
+@extends('landingpage.index')
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>

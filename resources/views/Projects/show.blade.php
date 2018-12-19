@@ -123,7 +123,6 @@
       
                               <input type="hidden" name="_method" value="delete">
       
-                              {{ csrf_field() }}
                     </form>
                     </li> 
               @endif 
@@ -131,6 +130,32 @@
               </ol>
             </div>
           </div><!-- /.blog-sidebar -->
+          
+          p<h4>Add members</h4>
+        <br/>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            
+            <form id="add-user" action="{{ route('projects.adduser') }}"  method="POST" >
+              {{ csrf_field()}}
+
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="submit">Add</button>
+            
+            </form>
+            </div>
+          </div>
+
+
+          <h4>Team members</h4>
+          <ol class="list-unstyled">
+
+          @foreach ($project->user  as $user)
+              
+              <li><a href="#">{{$user->email}}</a></li>
+
+          @endforeach
+          </ol>
 
         </div> 
       
