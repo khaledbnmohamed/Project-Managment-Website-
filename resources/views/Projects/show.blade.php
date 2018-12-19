@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-     <div class="row col-md-9 col-lg-9 col-sm-9 pull-left">
+     <div class="row col-md-9 col-lg-9 col-sm-9 float-left">
 
          
 
@@ -89,7 +89,7 @@
      </div>
   
 
-    <div class="col-sm-3 col-md-3 col-lg-3 pull-right">
+    <div class="col-sm-3 col-md-3 col-lg-3 float-right">
             <div class="sidebar-module sidebar-module-inset">
          
             <div class="sidebar-module">

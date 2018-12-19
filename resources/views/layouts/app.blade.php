@@ -12,7 +12,7 @@
         <title>Projects Managment Portal</title>
     
         <!-- Bootstrap core CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
         <!-- Custom fonts for this template -->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -34,7 +34,7 @@
 
 
 
-      </head>
+</head>
 
 <body>
     <div id="app">
@@ -137,19 +137,19 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
-<div class="blog-footer center">
+
+
+ </body>
+
+
+ <footer class="page-footer font-small blue pt-4">
         <div class="container text-center">
     <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
     <p>
       <a href="#">Back to top</a>
     </p>
-        </div>>
-  </div>
-
- </body>
-
-
-
+        </div>
+</footer>
 
 </html>
 
