@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use App\ProjectUsers;
+
 use App\Company;
+use App\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
@@ -128,6 +131,49 @@ class ProjectsController extends Controller
         ->route('projects.show', $project->id)
         ->with('success', "Project updated successfully");
     }
+    
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function adduser(Request $request)
+    {
+       
+        $project = Project::find($request->input('project_id'));
+
+        if(Auth::user()->id==$project->user_id){
+        
+        $user = User::where('email',$request->input('email'))->first(); #get single record user by email
+           
+        //check if already exists
+        $projectUser = ProjectUser::where('user_id',$user->id)
+        ->where('project_id',$project_id)->first();
+        
+        if($projectUser){
+
+            return redirect()
+            ->route('projects.show', ['project'=>$project->id])
+            ->with('success',$request->input('email'), "User already exists");
+        
+        }
+
+            if($user && $project){
+
+                $project->users()->attach($user->id);
+                return redirect()
+                ->route('projects.show', ['project'=>$project->id])
+                ->with('success',$request->input('email'), "User added successfully");
+            }
+        }
+        return redirect()
+        ->route('projects.show', ['project'=>$project->id])
+        ->with('error',$request->input('email'), "Error adding user");
+       
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *

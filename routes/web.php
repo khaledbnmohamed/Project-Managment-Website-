@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landingpage.welcome');
 });
 
 Auth::routes();
@@ -25,6 +25,8 @@ Route::middleware(['auth'])->group(function(){
 
     // Creating Special Route to allow adding new project assigned to specific company id
     Route::get('/projects/create/{company_id?}', 'ProjectsController@create');
+
+    Route::post('/projects/adduser/', 'ProjectsController@adduser')->name('projects.adduser');
 
     Route::resource('companies','CompaniesController');
     Route::resource('projects','ProjectsController');

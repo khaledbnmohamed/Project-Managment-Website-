@@ -4,9 +4,6 @@
 @section('content')
      <div class="row col-md-9 col-lg-9 col-sm-9 pull-left">
 
-         
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -62,13 +59,6 @@
             <div class="sidebar-module sidebar-module-inset">
          
             <div class="sidebar-module">
-              <h4>Archives</h4>
-              <ol class="list-unstyled">
-                <li><a href="#">March 2014</a></li>
-        
-              </ol>
-            </div>
-            <div class="sidebar-module">
               <h4>Actions</h4>
               <ol class="list-unstyled">
               <li><a href="/companies/{{$company->id}}/edit">Edit</a></li>
@@ -84,34 +74,11 @@
               <br/>
 
               <li>
-                <a   
-  
-                href="#"
-  
-                    onclick="
-  
-                    var result = confirm('Are you sure you wish to delete this Company?');
-  
-                        if( result ){
-  
-                                event.preventDefault();
-  
-                                document.getElementById('delete-form').submit();
-  
-                        }
-  
-                            "
-  
-                            >
-  
-                    Delete
-  
-                </a>
-  
-  
-  
+                <a href="#" onclick="var result = confirm('Are you sure you wish to delete this Company?');
+                    if( result ){event.preventDefault();
+                    document.getElementById('delete-form').submit();
+                    }">Delete</a>
                 <form id="delete-form" action="{{ route('companies.destroy',[$company->id]) }}" 
-  
                   method="POST" style="display: none;">
   
                           <input type="hidden" name="_method" value="delete">
@@ -130,7 +97,8 @@
 
         </div>
 
-    @endsection
     </body>
+    @endsection
+
 </html>
     
