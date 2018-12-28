@@ -74,7 +74,10 @@ class CommentsController extends Controller
      */
     public function show(Comment $comment)
     {
-        //
+        $comments = Comment::where('id',$id )->first();
+        $comments =$project->comments;
+        return view('projects.show',['project'=>$project,'comments'=>$comments]);
+        
     }
 
     /**

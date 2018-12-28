@@ -74,9 +74,9 @@
     <header class="masthead">
       <div class="container">
         <div class="intro-text">
-          <div class="intro-lead-in">Welcome To Our Studio!</div>
-          <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
-          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+          <div class="intro-lead-in">Manage your projects effeciently, hussle free and for free </div>
+          <div class="intro-heading text-uppercase">Welcome !</div>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Find More</a>
         </div>
       </div>
     </header>
