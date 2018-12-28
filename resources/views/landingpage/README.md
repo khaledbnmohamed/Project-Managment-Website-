@@ -1,6 +1,6 @@
-**A Complete Implementation for a projects scehduling website based on Laravel**
+**A Complete Implementation for a projects scehduling website based on Laravel** 
 
-Started from playlist :https://www.youtube.com/playlist?list=PLnBvgoOXZNCP2LEKmvu2W-eUkO-DYn0TL
+Started from playlist (not complete playlist) :https://www.youtube.com/playlist?list=PLnBvgoOXZNCP2LEKmvu2W-eUkO-DYn0TL
 
 and then completed the project solo.
 
@@ -10,4 +10,3 @@ https://projectsportal.000webhostapp.com/
 
 ![](https://github.com/khaledbnmohamed/Project-Managment-Website-/blob/master/Sketch.png)
 
-Have Fun !
