@@ -38,13 +38,15 @@
 
       <!-- Example row of columns -->
         {{-- //print projects linked to the project --}}
-        <li><a href="/projects/create" class ="pull-right btn btn-primary btn-small">Add new project</a></li>
+        <li><a href="/projects/create" class ="float-right btn btn-primary btn-small">Add new project</a></li>
        
     <br/>
 
+   
     @include('partials.comments')
 
-    
+    <br/>
+    <br/>
   <div class="row col-md-9 col-lg-9 col-sm-9 ">
       <form method = "post" action = "{{route('comments.store') }}">
           {{ csrf_field()}}
@@ -131,7 +133,7 @@
             </div>
           </div><!-- /.blog-sidebar -->
           
-          p<h4>Add members</h4>
+          <h4>Add members</h4>
         <br/>
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">

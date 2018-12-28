@@ -11,9 +11,6 @@
     
         <title>Projects Managment Portal</title>
     
-        <!-- Bootstrap core CSS -->
-        <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    
         <!-- Custom fonts for this template -->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -32,7 +29,10 @@
          <script src="{{ asset('js/app.js') }}" defer></script>
          <script src = "https://use.fontawesome.com/874dbadb7.js"> </script>
 
-
+        
+        <!-- Bootstrap core CSS -->
+        <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
 
 </head>
 
@@ -65,6 +65,9 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @else
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/') }}"></i> Home</a>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('companies.index') }}"><i class="far fa-building"></i> Companies</a>
