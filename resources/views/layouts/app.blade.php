@@ -10,7 +10,10 @@
         <meta name="author" content="">
     
         {{-- <title>Projects Managment Portal</title> --}}
-    
+        {{-- <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon"> 
+        Not working favicon
+        --}}
         <!-- Custom fonts for this template -->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
