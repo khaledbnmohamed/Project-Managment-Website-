@@ -38,7 +38,7 @@
 
       <!-- Example row of columns -->
         {{-- //print projects linked to the project --}}
-        <li><a href="/projects/create" class ="float-right btn btn-primary btn-small">Add new project</a></li>
+        <a href="/projects/create" class ="float-right btn btn-primary btn-small">Add new project</a>
        
     <br/>
 

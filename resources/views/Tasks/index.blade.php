@@ -37,12 +37,12 @@
 <div class="col-md-20 col-lg-6 col-md-offset-2"> 
     <div class="card" >
         <div class="card-header">
-        Companies
-        <a class ="float-right btn btn-primary" href="/companies/create">Create New </a></li>
+        Tasks
+        <a class ="float-right btn btn-primary" href="/tasks/create">Create New </a></li>
         </div>
         <ul class="list-group list-group-flush">
-        @foreach ($companies as $company)
-            <li class="list-group-item"><a href="/companies/{{$company->id}}"  >{{$company->name}}</li>
+        @foreach ($tasks as $task)
+            <li class="list-group-item"><a href="/tasks/{{$task->id}}"  >{{$task->name}}</li>
 
         @endforeach  
         </ul>
