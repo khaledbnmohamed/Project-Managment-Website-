@@ -15,8 +15,14 @@ class TasksController extends Controller
     public function index()
     {
         //
-    }
+        if(Auth::check()){ //check if user is logged in or not 
+        $tasks = Task::where('user_id',Auth::user()->id)->get();
+        //without the get ^^^^ NOTHING WILL BE SHOWN HERE
+        return view('tasks.Index',['tasks'=>$tasks]);
+         }
+        return view('auth.login');
 
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -3,27 +3,21 @@
 
 
 
-<!DOCTYPE html>
-
-    <head>
+  <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 
-    <title>Company {{$company->name}}</title>
+    <title>{{$company->name}}</title>
 
-   
-    <!-- Custom styles for this template -->
-    <link href="justified-nav.css" rel="stylesheet">
   </head>
 
 
-  @section('content')
-  <body>
 
+  <body>
+  @section('content')
   <div class="row col-md-9 col-lg-9 col-sm-9 float-left">
 
     <div class="container">
@@ -38,7 +32,7 @@
 
       <!-- Example row of columns -->
         {{-- //print projects linked to the company --}}
-        <li><a href="/projects/create" class ="pull-right btn btn-primary btn-small">Add new project</a></li>
+        <li><a href="/projects/create" class ="float-right btn btn-primary btn-small">Add new project</a></li>
         @foreach ($company->project as $project)
         <div class="row" style="background: white; margin :10px;">
                 <div class="col-lg-4">
@@ -55,7 +49,6 @@
 
 
     <div class="col-sm-3 col-md-3 col-lg-3 float-right">
-            <div class="sidebar-module sidebar-module-inset">
          
             <div class="sidebar-module">
               <h4>Actions</h4>
@@ -89,18 +82,16 @@
 
                 </li>
               </ol>
-            </div>
           </div><!-- /.blog-sidebar -->
+          @endsection
 
 
         </div>
 
-        @endsection
 
       </body>
-      </html>
 
-       
+
 
 
     
