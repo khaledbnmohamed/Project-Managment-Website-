@@ -58,7 +58,7 @@
               <li><a href="/companies/">All Companies</a></li>
 
                 <li><a href="#">Delete</a></li>
-                <li><a href="#">Add mew member</a></li>
+                <li><a href="#">Add new member</a></li>
               </ol>
             </div>
           </div><!-- /.blog-sidebar -->
