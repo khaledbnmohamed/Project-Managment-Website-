@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
     
-        <title>Projects Managment Portal</title>
+        {{-- <title>Projects Managment Portal</title> --}}
     
         <!-- Custom fonts for this template -->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -19,15 +19,16 @@
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     
         <!-- Custom styles for this template -->
-        <link href="css/agency.min.css" rel="stylesheet">
+        {{-- <link href="css/agency.min.css" rel="stylesheet"> --}}
 
         <!-- CSRF Token -->
          <meta name="csrf-token" content="{{ csrf_token() }}">
 
          <title>{{ config('app.name', 'Laravel') }}</title>
          <!-- Scripts -->
-         <script src="{{ asset('js/app.js') }}" defer></script>
          <script src = "https://use.fontawesome.com/874dbadb7.js"> </script>
+
+         <script src="{{ asset('js/app.js') }}" defer></script>
 
         
         <!-- Bootstrap core CSS -->
@@ -42,7 +43,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    Projacker
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -145,14 +146,7 @@
  </body>
 
 
- <footer class="page-footer font-small blue pt-4">
-        <div class="container text-center">
-    <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-    <p>
-      <a href="#">Back to top</a>
-    </p>
-        </div>
-</footer>
+
 
 </html>
 

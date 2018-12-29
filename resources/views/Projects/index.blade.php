@@ -6,7 +6,7 @@
     <div class="card" style="width: 18rem;">
         <div class="card-header">
         Projects
-        <a class ="pull-right btn btn-primary" href="/projects/create">Create New </a></li>
+        <a class ="float-right btn btn-primary" href="/projects/create">Create New </a></li>
         </div>
         <ul class="list-group list-group-flush">
         @foreach ($projects as $project)
