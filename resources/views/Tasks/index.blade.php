@@ -27,9 +27,7 @@
 <!-- Header -->
 <header class="masthead">
     <div class="container">
-      <div class="intro-text">
-        <div class="intro-heading text-uppercase">Welcome !</div>
-      </div>
+        <div class="intro-heading text-uppercase"><br/><br/><br/><br/>Welcome !</div>
     </div>
   </header>
 
@@ -40,6 +38,21 @@
         Tasks
         <a class ="float-right btn btn-primary" href="/tasks/create">Create New </a></li>
         </div>
+          <p>Please Select Company:</p>
+
+          <form action="/tasks/view" method="post">
+            <select name="Project_selection">
+                @foreach ($projects as $project)
+
+                    <option  name={{$project->name}} value={{$project->name}}>{{$project->name}}</option>
+
+                @endforeach  
+
+            </select>
+            <br><br>
+            <input type="submit">
+          </form>
+
         <ul class="list-group list-group-flush">
         @foreach ($tasks as $task)
             <li class="list-group-item"><a href="/tasks/{{$task->id}}"  >{{$task->name}}</li>

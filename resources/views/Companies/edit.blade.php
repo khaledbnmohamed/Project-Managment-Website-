@@ -1,10 +1,25 @@
-
 @extends('layouts.app')
 
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{$company->name}}</title>
+
+  </head>
+
+
+<body>
+
 @section('content')
-     <div class="row col-md-9 col-lg-9 col-sm-9 pull-left">
+    <div class="row col-md-9 col-lg-9 col-sm-9 float-left">
+        <div class="container">
+
         <form method = "post" action = "{{route('companies.update',[$company->id]) }}">
-            {{ csrf_field()}}
+            {{csrf_field()}}
 
             {{-- //work around to post --}}
                   <input type ="hidden" name= "_method" value = "put"> 
@@ -26,30 +41,13 @@
 
                     </div>
 
+                  </div>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+                </div>
 
-    <title>Justified Nav Template for Bootstrap</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/">
+                
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="justified-nav.css" rel="stylesheet">
-  </head>
-
-  <body>
-
- 
-
+          <div class="col-sm-3 col-md-3 col-lg-3 float-right">
 
             <div class="sidebar-module">
               <h4>Actions</h4>
@@ -66,26 +64,11 @@
 
 
 
-        <!-- Site footer -->
-        <footer class="footer">
-                <p>&copy; Company 2017</p>
-              </footer>
-        
-            </div> <!-- /container -->
-    @endsection
+  
+@endsection
 
 
-    
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
   </body>
 
   
-</html>
