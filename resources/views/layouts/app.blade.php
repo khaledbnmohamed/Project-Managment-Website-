@@ -21,21 +21,22 @@
         <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     
-        <!-- Custom styles for this template -->
-        {{-- <link href="css/agency.min.css" rel="stylesheet"> --}}
-
+    
         <!-- CSRF Token -->
          <meta name="csrf-token" content="{{ csrf_token() }}">
 
          <title>{{ config('app.name', 'Laravel') }}</title>
          <!-- Scripts -->
-         <script src = "https://use.fontawesome.com/874dbadb7.js"> </script>
 
          <script src="{{ asset('js/app.js') }}" defer></script>
 
         
         <!-- Bootstrap core CSS -->
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        {{-- Favicons css  for the nav bar icons--}}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
     
 
 </head>
@@ -45,9 +46,7 @@
         
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Projacker
-                </a>
+                <a class="navbar-brand" href="{{ url('/') }}"><i class="fab fa-product-hunt"></i>rojacker</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -70,17 +69,17 @@
                             </li>
                         @else
                         <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/') }}"></i> Home</a>
+                                <a class="nav-link" href="{{ url('/') }}"><i class="fas fa-home"></i> Home</a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('companies.index') }}"><i class="far fa-building"></i> Companies</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('projects.index') }}"><i class="far fa-building"></i>Projects</a>
+                            <a class="nav-link" href="{{ route('projects.index') }}"><i class="fas fa-project-diagram"></i> Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tasks.index') }}">Tasks</a>
+                            <a class="nav-link" href="{{ route('tasks.index') }}"><i class="fas fa-tasks"></i> Tasks</a>
                         </li>
  {{-- Admin Panel                        --}}
  @if (Auth::user()->role_id == 1)
@@ -99,14 +98,14 @@
     </li>   
  @endif                       
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><i class="far fa-user-circle"></i>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form').submit();"><i class="fas fa-door-open"></i>
                                         {{ __('Logout') }}
                                     </a>
 

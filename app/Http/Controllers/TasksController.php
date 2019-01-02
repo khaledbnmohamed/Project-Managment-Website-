@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use App\Project;
+use App\Company;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,8 +23,32 @@ class TasksController extends Controller
         if(Auth::check()){ //check if user is logged in or not 
         // dd(Auth::user()->id);
         $tasks = Task::where('user_id',Auth::user()->id)->get();
+        $projects = Project::where('user_id',Auth::user()->id)->get();
+
         //without the get ^^^^ NOTHING WILL BE SHOWN HERE
-        return view('tasks.Index',['tasks'=>$tasks]);
+        return view('tasks.Index',['tasks'=>$tasks],['projects'=>$projects]);
+         }
+        return view('auth.login');
+
+    }
+    public function view($company,$project)
+    {
+        //
+
+        if(Auth::check()){ //check if user is logged in or not 
+        // dd(Auth::user()->id);
+        if($project){
+
+            // where([ ['status', '=', '1'], ['subscribed', '<>', '1'], ])
+            $tasks = Task::where([ ['user_id',Auth::user()->id], [$project=>$user_id,Auth::user()->id] ])->get();
+            
+            return view('tasks.Index',['tasks'=>$tasks],['projects'=>$projects]);
+
+        }
+        $projects = Project::where('user_id',Auth::user()->id)->get();
+
+        //without the get ^^^^ NOTHING WILL BE SHOWN HERE
+        return view('tasks.Index',['tasks'=>$tasks],['projects'=>$projects]);
          }
         return view('auth.login');
 
