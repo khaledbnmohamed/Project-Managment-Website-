@@ -104,7 +104,7 @@
             <div class="sidebar-module">
               <h4>Actions</h4>
               <ol class="list-unstyled">
-              <li><a href="/companies/{{$project->id}}/edit">Edit</a></li>
+              <li><a href="/projects/{{$project->id}}/edit">Edit</a></li>
               <li><a href="/projects/create">Add new project</a></li>
               <li><a href="/companies">Projects lists</a></li>
 
