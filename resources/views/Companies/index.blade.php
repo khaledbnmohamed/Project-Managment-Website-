@@ -28,7 +28,7 @@
 <header class="masthead">
     <div class="container">
       <div class="intro-text">
-        <div class="intro-heading text-uppercase">Welcome !</div>
+        {{-- <div class="intro-heading text-uppercase">Welcome !</div> --}}
       </div>
     </div>
   </header>

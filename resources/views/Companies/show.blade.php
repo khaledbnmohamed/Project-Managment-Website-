@@ -56,7 +56,7 @@
               <li><a href="/companies/{{$company->id}}/edit">Edit</a></li>
               
               {{-- passing company id   to create project with --}}
-              <li><a href="/projects/create/{{ $company ->id}}">Add new project</a></li> 
+              <li><a href="/projects/create/{{$company ->id}}">Add new project</a></li> 
               
               <li><a href="/companies">Comapnies lists</a></li>
 

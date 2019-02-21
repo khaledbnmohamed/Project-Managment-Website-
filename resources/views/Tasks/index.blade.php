@@ -15,7 +15,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/agency.css" rel="stylesheet">
 
   </head>
 
@@ -27,11 +27,14 @@
 <!-- Header -->
 <header class="masthead">
     <div class="container">
-        <div class="intro-heading text-uppercase"><br/><br/><br/><br/>Welcome !</div>
+      <div class="intro-text">
+        <div class="intro-heading text-uppercase">Welcome !</div>
+      </div>
     </div>
   </header>
-
 <br/>
+
+{{-- TODO Make List of tasks of the selected company only appera --}}
 <div class="col-md-20 col-lg-6 col-md-offset-2"> 
     <div class="card" >
         <div class="card-header">
@@ -40,11 +43,15 @@
         </div>
           <p>Please Select Company:</p>
 
-          <form action="/tasks/view" method="post">
+          <form action="{{route('tasks.view') }}" method="post" id="projects">
+            {{csrf_field()}}
+            {{-- //work around to post --}}
+
+            <input type ="hidden" name= "_method" value = "put"> 
             <select name="Project_selection">
                 @foreach ($projects as $project)
 
-                    <option  name={{$project->name}} value={{$project->name}}>{{$project->name}}</option>
+                    <option value={{$project->name}}>{{$project->name}}</option>
 
                 @endforeach  
 

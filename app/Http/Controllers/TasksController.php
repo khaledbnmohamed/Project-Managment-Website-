@@ -31,10 +31,13 @@ class TasksController extends Controller
         return view('auth.login');
 
     }
-    public function view($company,$project)
+    public function view(Request $request)
     {
         //
+        $Project_selection= $request->Project_selection;
+        dd($Project_selection);
 
+        
         if(Auth::check()){ //check if user is logged in or not 
         // dd(Auth::user()->id);
         if($project){
@@ -42,7 +45,7 @@ class TasksController extends Controller
             // where([ ['status', '=', '1'], ['subscribed', '<>', '1'], ])
             $tasks = Task::where([ ['user_id',Auth::user()->id], [$project=>$user_id,Auth::user()->id] ])->get();
             
-            return view('tasks.Index',['tasks'=>$tasks],['projects'=>$projects]);
+            return redirect(['tasks'=>$tasks],['projects'=>$projects]);
 
         }
         $projects = Project::where('user_id',Auth::user()->id)->get();
@@ -61,6 +64,9 @@ class TasksController extends Controller
      */
     public function create()
     {
+        dd("HI");
+
+        
         return view('tasks.create');
     }
 

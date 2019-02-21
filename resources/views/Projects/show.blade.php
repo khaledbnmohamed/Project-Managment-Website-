@@ -93,14 +93,7 @@
 
     <div class="col-sm-3 col-md-3 col-lg-3 float-right">
             <div class="sidebar-module sidebar-module-inset">
-         
-            <div class="sidebar-module">
-              <h4>Archives</h4>
-              <ol class="list-unstyled">
-                <li><a href="#">March 2014</a></li>
-        
-              </ol>
-            </div>
+
             <div class="sidebar-module">
               <h4>Actions</h4>
               <ol class="list-unstyled">
